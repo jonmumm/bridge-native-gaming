@@ -8,8 +8,8 @@ interface OGSFullLogoProps {
 const OGSFullLogo: React.FC<OGSFullLogoProps> = ({ className = "" }) => {
   return (
     <div className={`relative ${className}`}>
-      <div className="w-full h-full bg-ogs-dark-purple rounded-xl flex items-center justify-center p-8 border-2 border-gray-700">
-        <div className="relative">
+      <div className="w-full h-full bg-ogs-dark-purple rounded-xl flex items-center justify-center p-8 border border-gray-700">
+        <div className="relative flex flex-col items-center">
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-white text-ogs-dark-purple px-6 py-1 text-center font-mono font-bold">
             OPEN GAME
           </div>
