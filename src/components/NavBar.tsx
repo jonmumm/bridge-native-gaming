@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Github } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import ThemeToggle from './ThemeToggle';
 
@@ -50,8 +50,11 @@ const NavBar = () => {
             FAQ
           </a>
           <ThemeToggle />
-          <Button className="bg-primary hover:bg-primary/90">
-            GitHub
+          <Button asChild className="bg-primary hover:bg-primary/90">
+            <a href="https://github.com/open-game-collective" target="_blank" rel="noopener noreferrer">
+              <Github className="mr-2 h-4 w-4" />
+              GitHub
+            </a>
           </Button>
         </nav>
 
@@ -108,8 +111,11 @@ const NavBar = () => {
             >
               FAQ
             </a>
-            <Button className="bg-primary hover:bg-primary/90 w-full">
-              GitHub
+            <Button asChild className="bg-primary hover:bg-primary/90 w-full">
+              <a href="https://github.com/open-game-collective" target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4" />
+                GitHub
+              </a>
             </Button>
           </nav>
         </div>

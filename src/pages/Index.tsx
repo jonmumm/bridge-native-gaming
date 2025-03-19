@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Image as ImageIcon, ExternalLink } from 'lucide-react';
+import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Image as ImageIcon, ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import NavBar from '@/components/NavBar';
 import OGSLogo from '@/components/OGSLogo';
@@ -87,11 +87,16 @@ authKit.linkAccount()
                 Enable your web games to access native capabilities like push notifications and TV casting while maintaining their web-first nature.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                  <a href="#get-started">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
-                <Button variant="outline" size="lg">
-                  View on GitHub
+                <Button asChild variant="outline" size="lg">
+                  <a href="https://github.com/open-game-collective" target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-4 w-4" />
+                    View on GitHub
+                  </a>
                 </Button>
               </div>
             </div>
