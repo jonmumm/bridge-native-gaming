@@ -62,10 +62,9 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				ogs: {
-					purple: '#9b87f5',
-					'light-purple': '#b3a3f7',
-					'dark-purple': '#1A1F2C',
-					'text-purple': '#9b87f5',
+					purple: '#6E59A5',
+					'light-purple': '#9b87f5',
+					'dark-purple': '#4A3D7A',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

@@ -1,10 +1,9 @@
-
 import React from 'react';
-import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Clock } from 'lucide-react';
+import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Image as ImageIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import NavBar from '@/components/NavBar';
+import OGSLogo from '@/components/OGSLogo';
 import OGSSmallLogo from '@/components/OGSSmallLogo';
-import OGSFullLogo from '@/components/OGSFullLogo';
 import SectionHeader from '@/components/SectionHeader';
 import FeatureCard from '@/components/FeatureCard';
 import SDKCard from '@/components/SDKCard';
@@ -72,7 +71,7 @@ authKit.linkAccount()
       <NavBar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden dark:bg-ogs-dark-purple">
+      <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -80,14 +79,14 @@ authKit.linkAccount()
                 <OGSSmallLogo className="w-12 h-12 mr-3" />
                 <span className="font-orbitron text-lg font-bold">Open Game System</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold font-orbitron mb-4 text-ogs-purple">
+              <h1 className="text-4xl md:text-6xl font-bold font-orbitron mb-4 bg-clip-text text-transparent bg-gradient-to-r from-ogs-purple to-primary">
                 Bridge Web Games to Native Features
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0">
                 Enable your web games to access native capabilities like push notifications and TV casting while maintaining their web-first nature.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-ogs-purple hover:bg-ogs-purple/90 text-white">
+                <Button size="lg" className="bg-primary hover:bg-primary/90">
                   Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button variant="outline" size="lg">
@@ -97,15 +96,18 @@ authKit.linkAccount()
             </div>
             <div className="flex justify-center lg:justify-end">
               <div className="w-full max-w-md">
-                <OGSFullLogo className="w-full h-auto" />
+                <OGSLogo className="w-full h-auto" />
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Gradient background */}
+        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-ogs-purple/10 to-transparent -z-10" />
       </section>
 
       {/* What is OGS Section */}
-      <section id="about" className="section-padding dark:bg-ogs-dark-purple">
+      <section id="about" className="section-padding">
         <div className="container mx-auto">
           <SectionHeader 
             title="What is OGS?"
@@ -116,25 +118,25 @@ authKit.linkAccount()
             <FeatureCard 
               title="Web-First"
               description="Keep your game as a web application with all the benefits of web distribution and instant play."
-              icon={<PlayCircle className="h-6 w-6 text-ogs-purple" />}
+              icon={<PlayCircle className="h-6 w-6 text-primary" />}
               delay={0}
             />
             <FeatureCard 
               title="Native Access"
               description="Seamlessly integrate with native device features like push notifications, camera, and more."
-              icon={<Zap className="h-6 w-6 text-ogs-purple" />}
+              icon={<Zap className="h-6 w-6 text-primary" />}
               delay={100}
             />
             <FeatureCard 
               title="Cross Platform"
               description="Works across mobile, desktop, smart TVs, and game consoles with browser support."
-              icon={<Users className="h-6 w-6 text-ogs-purple" />}
+              icon={<Users className="h-6 w-6 text-primary" />}
               delay={200}
             />
             <FeatureCard 
               title="Secure"
               description="Enterprise-grade security with encrypted communication and strict permission controls."
-              icon={<Shield className="h-6 w-6 text-ogs-purple" />}
+              icon={<Shield className="h-6 w-6 text-primary" />}
               delay={300}
             />
           </div>
@@ -142,7 +144,7 @@ authKit.linkAccount()
       </section>
 
       {/* Core Components Section */}
-      <section id="components" className="section-padding bg-secondary/50 dark:bg-ogs-dark-purple/50">
+      <section id="components" className="section-padding bg-secondary/50">
         <div className="container mx-auto">
           <SectionHeader 
             title="Core Components"
@@ -153,19 +155,19 @@ authKit.linkAccount()
             <SDKCard 
               title="auth-kit"
               description="Link user accounts between games and OGS platform for seamless identity management."
-              icon={<User className="h-6 w-6 text-ogs-purple" />}
+              icon={<User className="h-6 w-6 text-primary" />}
               delay={0}
             />
             <SDKCard 
               title="notification-kit"
               description="Send and receive push notifications to keep players engaged, even when they're not actively playing."
-              icon={<Bell className="h-6 w-6 text-ogs-purple" />}
+              icon={<Bell className="h-6 w-6 text-primary" />}
               delay={200}
             />
             <SDKCard 
               title="cast-kit"
               description="Enable TV casting capabilities, allowing players to display their games on larger screens."
-              icon={<Tv className="h-6 w-6 text-ogs-purple" />}
+              icon={<Tv className="h-6 w-6 text-primary" />}
               delay={400}
             />
           </div>
@@ -173,7 +175,7 @@ authKit.linkAccount()
       </section>
 
       {/* App Showcase Section */}
-      <section id="showcase" className="section-padding dark:bg-ogs-dark-purple">
+      <section id="showcase" className="section-padding">
         <div className="container mx-auto">
           <SectionHeader 
             title="OGS in Action"
@@ -181,42 +183,13 @@ authKit.linkAccount()
           />
           
           <div className="mt-12">
-            {/* Coming Soon Showcase for Trivia Jam */}
-            <div className="glass-card p-8 text-center">
-              <div className="flex items-center justify-center space-x-3 mb-6">
-                <Clock className="w-8 h-8 text-ogs-purple" />
-                <h3 className="text-2xl font-orbitron font-bold">Coming Soon</h3>
-              </div>
-              
-              <div className="max-w-3xl mx-auto">
-                <h4 className="text-xl font-bold mb-4">Trivia Jam</h4>
-                <p className="text-muted-foreground mb-6">
-                  Our reference implementation showcasing OGS integration. 
-                  An interactive trivia platform demonstrating push notifications, 
-                  TV casting, and account linking capabilities.
-                </p>
-                
-                <div className="bg-ogs-dark-purple/30 p-6 rounded-lg border border-ogs-purple/30 mb-8">
-                  <div className="aspect-video bg-gradient-to-r from-ogs-dark-purple/80 to-ogs-purple/30 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <OGSSmallLogo className="w-16 h-16 mx-auto mb-4 opacity-70" />
-                      <p className="font-orbitron text-lg">Trivia Jam Preview</p>
-                      <p className="text-sm text-muted-foreground mt-2">Launch Date: Q3 2023</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <Button className="bg-ogs-purple hover:bg-ogs-purple/90">
-                  Get Notified When Live
-                </Button>
-              </div>
-            </div>
+            <ImageGallery images={galleryImages} />
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="section-padding bg-secondary/50 dark:bg-ogs-dark-purple/50">
+      <section id="how-it-works" className="section-padding bg-secondary/50">
         <div className="container mx-auto">
           <SectionHeader 
             title="How It Works"
@@ -224,27 +197,27 @@ authKit.linkAccount()
           />
           
           <div className="mt-12 flex justify-center">
-            <div className="relative w-full max-w-3xl p-8 bg-card rounded-xl border border-border shadow-sm dark:bg-ogs-dark-purple/30">
+            <div className="relative w-full max-w-3xl p-8 bg-card rounded-xl border border-border shadow-sm">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="text-center space-y-3">
-                  <div className="mx-auto w-16 h-16 rounded-full bg-ogs-purple/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-ogs-purple">1</span>
+                  <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary">1</span>
                   </div>
                   <h3 className="font-medium">Web Game</h3>
                   <p className="text-sm text-muted-foreground">Your existing web game integrates OGS SDKs</p>
                 </div>
                 
                 <div className="text-center space-y-3">
-                  <div className="mx-auto w-16 h-16 rounded-full bg-ogs-purple/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-ogs-purple">2</span>
+                  <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary">2</span>
                   </div>
                   <h3 className="font-medium">OGS Platform</h3>
                   <p className="text-sm text-muted-foreground">Securely manages access to native device features</p>
                 </div>
                 
                 <div className="text-center space-y-3">
-                  <div className="mx-auto w-16 h-16 rounded-full bg-ogs-purple/10 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-ogs-purple">3</span>
+                  <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary">3</span>
                   </div>
                   <h3 className="font-medium">Native Features</h3>
                   <p className="text-sm text-muted-foreground">Push notifications, TV casting, sensors, etc.</p>
@@ -260,7 +233,7 @@ authKit.linkAccount()
       </section>
 
       {/* Get Started Section */}
-      <section id="get-started" className="section-padding bg-secondary/50 dark:bg-ogs-dark-purple">
+      <section id="get-started" className="section-padding bg-secondary/50">
         <div className="container mx-auto">
           <SectionHeader 
             title="Get Started"
@@ -271,8 +244,8 @@ authKit.linkAccount()
             <div>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-ogs-purple/10 flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-ogs-purple font-bold">1</span>
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-primary font-bold">1</span>
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-2">Install OGS SDKs</h3>
@@ -282,8 +255,8 @@ authKit.linkAccount()
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-ogs-purple/10 flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-ogs-purple font-bold">2</span>
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-primary font-bold">2</span>
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-2">Initialize the SDK</h3>
@@ -292,8 +265,8 @@ authKit.linkAccount()
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-ogs-purple/10 flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-ogs-purple font-bold">3</span>
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-primary font-bold">3</span>
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-2">Use Native Features</h3>
@@ -311,7 +284,7 @@ authKit.linkAccount()
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="section-padding bg-secondary/50 dark:bg-ogs-dark-purple/50">
+      <section id="faq" className="section-padding bg-secondary/50">
         <div className="container mx-auto">
           <SectionHeader 
             title="Frequently Asked Questions"
