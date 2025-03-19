@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Image as ImageIcon } from 'lucide-react';
+import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Image as ImageIcon, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import NavBar from '@/components/NavBar';
 import OGSLogo from '@/components/OGSLogo';
@@ -34,9 +33,8 @@ authKit.linkAccount()
     console.error('Error linking account', error);
   });`;
   
-  // Updated image gallery with properly formatted paths
-  // Using demo screenshots as placeholders
-  const galleryImages = [
+  // Demo screenshots of Trivia Jam - the example implementation
+  const triviaJamImages = [
     '/placeholder.svg',
     '/placeholder.svg',
     '/placeholder.svg',
@@ -176,16 +174,44 @@ authKit.linkAccount()
         </div>
       </section>
 
-      {/* App Showcase Section */}
+      {/* App Showcase Section - Updated for Trivia Jam */}
       <section id="showcase" className="section-padding">
         <div className="container mx-auto">
           <SectionHeader 
-            title="OGS in Action"
-            subtitle="See how developers are using OGS to enhance their web games with native features."
+            title="OGS in Action: Trivia Jam"
+            subtitle="Trivia Jam is the first example implementation of the OGS spec, showcasing how web games can leverage native features."
           />
           
-          <div className="mt-12">
-            <ImageGallery images={galleryImages} />
+          <div className="mt-8 text-center">
+            <p className="mb-6 text-lg">
+              Trivia Jam demonstrates how OGS enables web games to access native capabilities while maintaining their web-first nature.
+            </p>
+            
+            <div className="flex justify-center mb-8">
+              <Button 
+                as="a" 
+                href="https://triviajam.tv" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-primary hover:bg-primary/90 mr-4"
+              >
+                Play Trivia Jam <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+              
+              <Button 
+                as="a" 
+                href="https://github.com/open-game-collective/trivia-jam" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                variant="outline"
+              >
+                View on GitHub <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+          
+          <div className="mt-6">
+            <ImageGallery images={triviaJamImages} />
           </div>
         </div>
       </section>
