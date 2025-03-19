@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap } from 'lucide-react';
+import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import NavBar from '@/components/NavBar';
 import OGSSmallLogo from '@/components/OGSSmallLogo';
@@ -181,7 +181,36 @@ authKit.linkAccount()
           />
           
           <div className="mt-12">
-            <ImageGallery images={galleryImages} />
+            {/* Coming Soon Showcase for Trivia Jam */}
+            <div className="glass-card p-8 text-center">
+              <div className="flex items-center justify-center space-x-3 mb-6">
+                <Clock className="w-8 h-8 text-ogs-purple" />
+                <h3 className="text-2xl font-orbitron font-bold">Coming Soon</h3>
+              </div>
+              
+              <div className="max-w-3xl mx-auto">
+                <h4 className="text-xl font-bold mb-4">Trivia Jam</h4>
+                <p className="text-muted-foreground mb-6">
+                  Our reference implementation showcasing OGS integration. 
+                  An interactive trivia platform demonstrating push notifications, 
+                  TV casting, and account linking capabilities.
+                </p>
+                
+                <div className="bg-ogs-dark-purple/30 p-6 rounded-lg border border-ogs-purple/30 mb-8">
+                  <div className="aspect-video bg-gradient-to-r from-ogs-dark-purple/80 to-ogs-purple/30 rounded-lg flex items-center justify-center">
+                    <div className="text-center">
+                      <OGSSmallLogo className="w-16 h-16 mx-auto mb-4 opacity-70" />
+                      <p className="font-orbitron text-lg">Trivia Jam Preview</p>
+                      <p className="text-sm text-muted-foreground mt-2">Launch Date: Q3 2023</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <Button className="bg-ogs-purple hover:bg-ogs-purple/90">
+                  Get Notified When Live
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
