@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, ImageIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ImageGalleryProps {
@@ -11,6 +11,7 @@ interface ImageGalleryProps {
 const ImageGallery = ({ images, className }: ImageGalleryProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
 
   const navigateNext = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -20,23 +21,36 @@ const ImageGallery = ({ images, className }: ImageGalleryProps) => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const handleImageError = (index: number) => {
+    setImageErrors(prev => ({ ...prev, [index]: true }));
+  };
+
+  const placeholderImage = '/placeholder.svg';
+
   return (
     <div className={cn("w-full", className)}>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {images.map((image, index) => (
           <div 
             key={index} 
-            className="aspect-square relative overflow-hidden rounded-md cursor-pointer transform transition-transform hover:scale-105"
+            className="aspect-square relative overflow-hidden rounded-md cursor-pointer transform transition-transform hover:scale-105 bg-secondary/30"
             onClick={() => {
               setCurrentImageIndex(index);
               setShowModal(true);
             }}
           >
-            <img
-              src={image}
-              alt={`Gallery image ${index + 1}`}
-              className="object-cover w-full h-full"
-            />
+            {imageErrors[index] ? (
+              <div className="flex items-center justify-center w-full h-full bg-secondary/50">
+                <ImageIcon className="w-8 h-8 text-muted-foreground" />
+              </div>
+            ) : (
+              <img
+                src={image}
+                alt={`Gallery image ${index + 1}`}
+                className="object-cover w-full h-full"
+                onError={() => handleImageError(index)}
+              />
+            )}
           </div>
         ))}
       </div>
@@ -59,11 +73,18 @@ const ImageGallery = ({ images, className }: ImageGalleryProps) => {
           </button>
           
           <div className="max-w-4xl max-h-[90vh] relative">
-            <img
-              src={images[currentImageIndex]}
-              alt={`Gallery image ${currentImageIndex + 1}`}
-              className="max-w-full max-h-[90vh] object-contain"
-            />
+            {imageErrors[currentImageIndex] ? (
+              <div className="flex items-center justify-center w-64 h-64 bg-secondary/20">
+                <ImageIcon className="w-16 h-16 text-muted-foreground" />
+              </div>
+            ) : (
+              <img
+                src={images[currentImageIndex]}
+                alt={`Gallery image ${currentImageIndex + 1}`}
+                className="max-w-full max-h-[90vh] object-contain"
+                onError={() => handleImageError(currentImageIndex)}
+              />
+            )}
           </div>
           
           <button 

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Image as ImageIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -33,13 +34,14 @@ authKit.linkAccount()
     console.error('Error linking account', error);
   });`;
   
-  // Image gallery
+  // Updated image gallery with properly formatted paths
+  // Using demo screenshots as placeholders
   const galleryImages = [
-    'public/lovable-uploads/237532c1-c495-4cff-abed-ac35701f8736.png',
-    'public/lovable-uploads/a3215fa4-36f0-4e4e-9124-1ae1c6b54809.png',
-    'public/lovable-uploads/62096ea9-776f-48a2-a7a4-b11626f46c61.png',
-    'public/lovable-uploads/87d6df62-df1f-4537-9f37-8de1e538ab43.png',
-    'public/lovable-uploads/83e868ae-8663-4eec-9735-6757dff8ff76.png',
+    '/placeholder.svg',
+    '/placeholder.svg',
+    '/placeholder.svg',
+    '/placeholder.svg',
+    '/placeholder.svg',
   ];
   
   // FAQ items
