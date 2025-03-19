@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Image as ImageIcon, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -188,24 +189,17 @@ authKit.linkAccount()
             </p>
             
             <div className="flex justify-center mb-8">
-              <Button 
-                as="a" 
-                href="https://triviajam.tv" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-primary hover:bg-primary/90 mr-4"
-              >
-                Play Trivia Jam <ExternalLink className="ml-2 h-4 w-4" />
+              {/* Fixed Button as anchor issue by using asChild with proper nesting */}
+              <Button asChild className="bg-primary hover:bg-primary/90 mr-4">
+                <a href="https://triviajam.tv" target="_blank" rel="noopener noreferrer">
+                  Play Trivia Jam <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
               </Button>
               
-              <Button 
-                as="a" 
-                href="https://github.com/open-game-collective/trivia-jam" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                variant="outline"
-              >
-                View on GitHub <ExternalLink className="ml-2 h-4 w-4" />
+              <Button asChild variant="outline">
+                <a href="https://github.com/open-game-collective/trivia-jam" target="_blank" rel="noopener noreferrer">
+                  View on GitHub <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
               </Button>
             </div>
           </div>
