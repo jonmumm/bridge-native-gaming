@@ -1,14 +1,15 @@
-
 import React from 'react';
-import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap } from 'lucide-react';
+import { ArrowRight, Users, Bell, Tv, PlayCircle, User, Shield, Zap, Image as ImageIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import NavBar from '@/components/NavBar';
 import OGSLogo from '@/components/OGSLogo';
+import OGSSmallLogo from '@/components/OGSSmallLogo';
 import SectionHeader from '@/components/SectionHeader';
 import FeatureCard from '@/components/FeatureCard';
 import SDKCard from '@/components/SDKCard';
 import FAQAccordion from '@/components/FAQAccordion';
 import CodeSnippet from '@/components/CodeSnippet';
+import ImageGallery from '@/components/ImageGallery';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -31,6 +32,15 @@ authKit.linkAccount()
   .catch((error) => {
     console.error('Error linking account', error);
   });`;
+  
+  // Image gallery
+  const galleryImages = [
+    'public/lovable-uploads/237532c1-c495-4cff-abed-ac35701f8736.png',
+    'public/lovable-uploads/a3215fa4-36f0-4e4e-9124-1ae1c6b54809.png',
+    'public/lovable-uploads/62096ea9-776f-48a2-a7a4-b11626f46c61.png',
+    'public/lovable-uploads/87d6df62-df1f-4537-9f37-8de1e538ab43.png',
+    'public/lovable-uploads/83e868ae-8663-4eec-9735-6757dff8ff76.png',
+  ];
   
   // FAQ items
   const faqItems = [
@@ -65,6 +75,10 @@ authKit.linkAccount()
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start mb-4">
+                <OGSSmallLogo className="w-12 h-12 mr-3" />
+                <span className="font-orbitron text-lg font-bold">Open Game System</span>
+              </div>
               <h1 className="text-4xl md:text-6xl font-bold font-orbitron mb-4 bg-clip-text text-transparent bg-gradient-to-r from-ogs-purple to-primary">
                 Bridge Web Games to Native Features
               </h1>
@@ -160,8 +174,22 @@ authKit.linkAccount()
         </div>
       </section>
 
+      {/* App Showcase Section */}
+      <section id="showcase" className="section-padding">
+        <div className="container mx-auto">
+          <SectionHeader 
+            title="OGS in Action"
+            subtitle="See how developers are using OGS to enhance their web games with native features."
+          />
+          
+          <div className="mt-12">
+            <ImageGallery images={galleryImages} />
+          </div>
+        </div>
+      </section>
+
       {/* How It Works Section */}
-      <section id="how-it-works" className="section-padding">
+      <section id="how-it-works" className="section-padding bg-secondary/50">
         <div className="container mx-auto">
           <SectionHeader 
             title="How It Works"
@@ -256,7 +284,7 @@ authKit.linkAccount()
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="section-padding">
+      <section id="faq" className="section-padding bg-secondary/50">
         <div className="container mx-auto">
           <SectionHeader 
             title="Frequently Asked Questions"
